@@ -1,0 +1,54 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\hly\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs\;C:\Users\hly\AppData\Roaming\npm\node_modules\nodemon;D:\mysql-5.6.47-winx64\bin;D:\flutter\bin;C:\Program Files\jdk1.8.0_131\bin;C:\ProgramData\chocolatey\bin;C:\Users\hly\AppData\Local\Microsoft\WindowsApps;d:\Users\hly\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hly\AppData\Roaming\npm;C:\tools\dart-sdk\bin;C:\Users\hly\AppData\Roaming\Pub\Cache\bin;
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.13.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: connect ETIMEDOUT 104.16.20.35:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1128:14)
+
+npm manifest: 
+  {
+    "name": "lt-ui",
+    "version": "1.0.0",
+    "description": "This is a lt components library for vue",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "vue",
+      "ui",
+      "lt"
+    ],
+    "author": "Hly",
+    "license": "ISC",
+    "devDependencies": {
+      "webpack-cli": "^3.3.11",
+      "webpack": "^4.42.0",
+      "@babel/core": "^7.8.4",
+      "@babel/plugin-transform-regenerator": "^7.8.3",
+      "@babel/plugin-transform-runtime": "^7.8.3",
+      "@babel/preset-env": "^7.8.4",
+      "babel-loader": "^8.0.6"
+    },
+    "dependencies": {
+      "vue-loader": "^15.9.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

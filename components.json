@@ -1,0 +1,12 @@
+{
+    "button": "./packages/button/index.js",
+    "datePicker": "./packages/datePicker/index.js",
+    "dialog": "./packages/dialog/index.js",
+    "loading": "./packages/loading/index.js",
+    "moke": "./packages/moke/index.js",
+    "popup": "./packages/popup/index.js",
+    "scroll": "./packages/scroll/index.js",
+    "shareSheet": "./packages/shareSheet/index.js",
+    "toast": "./packages/toast/index.js",
+    "switchCell": "./packages/switchCell/index.js"
+}

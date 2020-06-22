@@ -1,0 +1,58 @@
+.view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateZ(0);
+  }
+  .pulldown {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+    height: 100%;
+  }
+  .pulldown-bswrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+  .pulldown-list {
+    padding: 0;
+  }
+  
+  .pulldown-wrapper {
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    transform: translateY(-100%) translateZ(0);
+    text-align: center;
+    color: #999;
+  }
+  .pullup-wrapper {
+    padding: 10px;
+    text-align: center;
+    color: #999;
+  }
+  .pullup-txt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .loadingImg {
+    width: 16px;
+    margin-right:5px;
+  }
+  .scollTop {
+    width: 42px;
+    position: absolute;
+    bottom: 30px;
+    right:10px;
+  }
+  .pulldown-scroller {
+    min-height: calc(100% + 1px);
+    display: flex;
+    flex-direction: column;
+  }

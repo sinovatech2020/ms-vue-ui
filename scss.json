@@ -1,0 +1,12 @@
+{
+    "button": "./packages/theme/src/button.scss",
+    "datePicker": "./packages/theme/src/datePicker.scss",
+    "dialog": "./packages/theme/src/dialog.scss",
+    "loading": "./packages/theme/src/loading.scss",
+    "moke": "./packages/theme/src/moke.scss",
+    "popup": "./packages/theme/src/popup.scss",
+    "scroll": "./packages/theme/src/scroll.scss",
+    "shareSheet": "./packages/theme/src/shareSheet.scss",
+    "switchCell": "./packages/theme/src/switchCell.scss",
+    "toast": "./packages/theme/src/toast.scss"
+}
