@@ -2,7 +2,7 @@
   <transition name='fade'>
     <div class="popup-moke" v-show="value" @click="hidePopup">
       <transition :name="`slide-${direction}`">
-        <div class="popup-wrap" :class='[className]' v-show="value">
+        <div class="popup-wrap" :class='[className]' v-show="value" @click.stop>
           <slot></slot>
         </div>
       </transition>
