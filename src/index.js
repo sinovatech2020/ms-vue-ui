@@ -9,6 +9,7 @@ import MsSwitchCell from '../packages/switchCell/index'
 import MsDatePicker from "../packages/datePicker/index"
 import MsShareSheet from '../packages/shareSheet/index'
 import MsSwitch from '../packages/switch/index'
+import MsAreaPicker from '../packages/areaPicker/index'
 
 const components = [
     MsDialog,
@@ -19,7 +20,8 @@ const components = [
     MsSwitchCell,
     MsDatePicker,
     MsShareSheet,
-    MsSwitch
+    MsSwitch,
+    MsAreaPicker
 ];
 
 const install = function (Vue, opts = {}) {
@@ -47,5 +49,6 @@ export default {
     MsSwitchCell,
     MsDatePicker,
     MsShareSheet,
-    MsSwitch
+    MsSwitch,
+    MsAreaPicker
 }

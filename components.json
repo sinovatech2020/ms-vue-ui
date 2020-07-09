@@ -9,5 +9,6 @@
     "shareSheet": "./packages/shareSheet/index.js",
     "toast": "./packages/toast/index.js",
     "switchCell": "./packages/switchCell/index.js",
-    "switch":"./packages/switch/index.js"
+    "switch":"./packages/switch/index.js",
+    "areaPicker":"./packages/areaPicker/index.js"
 }
