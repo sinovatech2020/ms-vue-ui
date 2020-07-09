@@ -19,7 +19,7 @@ function getDirection(x, y) {
   return "";
 }
 export default {
-  name: "MsSwtichCell",
+  name: "MsSwitchCell",
   data() {
     return {
       startX: 0,

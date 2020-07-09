@@ -1,6 +1,6 @@
 <template>
   <div class="text">
-    <un-popup v-model="show" :direction="'bottom'" @hide='hide'>
+    <ms-popup v-model="show" :direction="'bottom'" @hide='hide'>
       <h4 class="share-tit">分享至</h4>
       <div class="share-sheet-wrapper">
         <div class="share-item" v-for="(item,index) in icons" :key="index" @click="shareClick(item.id)">
@@ -9,19 +9,21 @@
         </div>
       </div>
       <div class="share-cancle" @click.stop="cancle">取消</div>
-    </un-popup>
+    </ms-popup>
   </div>
 </template>
 <script>
+import MsPopup from '../../popup/src/main.vue';
 export default {
   name: "MsShareSheet",
+  components:{
+    MsPopup
+  },
   props: {
     value: {
       type: Boolean,
       default: false
-    }
-  },
-  props: {
+    },
     shareTitle: String,
     shareContent: String,
     shareURL: String,
@@ -190,40 +192,3 @@ export default {
   }
 };
 </script>
-<!--<style lang="scss">
-.share-sheet-wrapper {
-  display: flex;
-  justify-content: space-around;
-  box-sizing: border-box;
-  padding-top: 20px;
-}
-.share-tit {
-  font-size: 14px;
-  color: #999;
-  text-align: center;
-  padding-top: 18px;
-}
-.share-item {
-  width: 50px;
-  font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  img {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
-.share-cancle {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  border-top: 1px solid #eeeeee;
-  position: absolute;
-  bottom: 0;
-}
-</style>

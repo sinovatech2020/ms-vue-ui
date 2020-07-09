@@ -8,5 +8,6 @@
     "scroll": "./packages/scroll/index.js",
     "shareSheet": "./packages/shareSheet/index.js",
     "toast": "./packages/toast/index.js",
-    "switchCell": "./packages/switchCell/index.js"
+    "switchCell": "./packages/switchCell/index.js",
+    "switch":"./packages/switch/index.js"
 }

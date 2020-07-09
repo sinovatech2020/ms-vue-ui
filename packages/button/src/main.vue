@@ -52,20 +52,3 @@ export default {
   }
 };
 </script>
-<!--<style lang="scss">
-@import "../../../src/styles/var.scss";
-.btn-wrapper {
-  width: calc(100% - 80px);
-  margin: 0 auto;
-  height: 40px;
-  color: $defult-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100px;
-  font-weight: bold;
-  span {
-    font-size: 18px;
-  }
-}
-</style>-->

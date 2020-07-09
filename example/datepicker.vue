@@ -1,10 +1,11 @@
 <template>
   <div class="text">
     <button @click="showClick">click 显示日期</button>
-    <Un-date-picker v-model="display" @confirm='confirm' :min='min' :max='max'></Un-date-picker>
+    <ms-date-picker v-model="display" @confirm='confirm' :min='min' :max='max'></ms-date-picker>
   </div>
 </template>
 <script>
+import '../packages/theme/src/datePicker.scss'
 export default {
   data() {
     return {

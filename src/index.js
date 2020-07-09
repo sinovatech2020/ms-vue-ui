@@ -8,6 +8,7 @@ import MsScroll from '../packages/scroll/index'
 import MsSwitchCell from '../packages/switchCell/index'
 import MsDatePicker from "../packages/datePicker/index"
 import MsShareSheet from '../packages/shareSheet/index'
+import MsSwitch from '../packages/switch/index'
 
 const components = [
     MsDialog,
@@ -17,7 +18,8 @@ const components = [
     MsScroll,
     MsSwitchCell,
     MsDatePicker,
-    MsShareSheet
+    MsShareSheet,
+    MsSwitch
 ];
 
 const install = function (Vue, opts = {}) {
@@ -44,5 +46,6 @@ export default {
     MsScroll,
     MsSwitchCell,
     MsDatePicker,
-    MsShareSheet
+    MsShareSheet,
+    MsSwitch
 }

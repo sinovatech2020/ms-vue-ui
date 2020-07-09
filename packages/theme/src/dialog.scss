@@ -34,13 +34,14 @@
   top: 30%;
   left: 50%;
   margin-left: -160px;
-  // transform: translate3d(-50%, -50%, 0) ;
-  // animation: dialog-zoom 0.5s;
 }
 .dialog-title {
   font-size: $default-font;
   padding-top: 24px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .dialog-content {
   padding-top: 12px;
@@ -65,4 +66,9 @@
   .cancle {
     color: $btn-gray;
   }
+}
+.dialog-icon{
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
 }
