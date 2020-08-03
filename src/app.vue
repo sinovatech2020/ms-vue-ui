@@ -1,60 +1,30 @@
 <template>
   <div class="un-scroll-box">
-    <ms-scroll @pullUpFun='pullUpFun' @pullDownFun='pullDownFun' ref='myScroll'>
-      <div v-for="(item,index) in list" :key="index">
-        <div class="item">{{item}}</div>
-      </div>
-    </ms-scroll>
+    <input type="text">
+    <button @click="showClick">showClick</button>
+    <ms-date-picker v-model="show" @confirm='confirm' :min='min' :max='max' :title='tit' :row='3' ref="myPicker"></ms-date-picker>
   </div>
 </template>
 <script>
-import '../packages/theme/src/scroll.scss'
-const arr = () => {
-  return [...new Array(30).keys()];
-};
+import "../packages/theme/src/datePicker.scss";
 export default {
   data() {
     return {
-      list: []
+      min: [1998, 1, 1],
+      max: [2030, 12, 31],
+      tit: "我是要给标题",
+      show: false,
     };
   },
   methods: {
-    pullDownFun(cb) {
-      setTimeout(() => {
-        this.list = arr();
-        cb();
-      }, 2000);
+    confirm(val) {
+      console.log(val);
     },
-    pullUpFun(cb) {
-      console.log(arr());
-      setTimeout(() => {
-        this.list = this.list.concat(arr());
-        cb(false);
-      }, 1000);
-    }
+    showClick() {
+      this.show = true;
+    },
   },
-  mounted() {
-    // setTimeout(()=>{
-      this.list=arr()
-      this.$nextTick(()=>{
-        this.$refs.myScroll.bscroll.refresh();
-      })
-    // },2000)
-  }
 };
 </script>
 <style lang="scss" scoped>
-.un-scroll-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-.item {
-  width: 100%;
-  height: 30px;
-  margin-bottom: 20px;
-  background: #ccc;
-}
 </style>

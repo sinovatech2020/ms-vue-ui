@@ -39,39 +39,39 @@ export default {
       type: Array,
       default() {
         return [2010, 1, 1];
-      }
+      },
     },
     max: {
       type: Array,
       default() {
         return [2021, 12, 20];
-      }
+      },
     },
     value: {
       type: Boolean,
-      default: false
+      default: false,
     },
     title: String,
     row: {
       type: Number,
-      default: 3
-    }
+      default: 3,
+    },
   },
   data() {
     return {
       wheels: [],
       selectedIndex: [0, 0, 0],
-      data: []
+      data: [],
     };
   },
   computed: {
     data1() {
       let data = range(this.min[0], this.max[0], false, "年"); //输出月
-      data.forEach(year => {
+      data.forEach((year) => {
         let minMonth = year.value === this.min[0] ? this.min[1] : 1; //返回  最小月份 如果没有则1
         let maxMonth = year.value === this.max[0] ? this.max[1] : 12; //返回 最大月份 如果没有返回12
         year.children = range(minMonth, maxMonth, false, "月"); //给年追加一个子数组月份
-        year.children.forEach(month => {
+        year.children.forEach((month) => {
           let day = 30; //默认为30天
           if ([1, 3, 5, 7, 8, 10, 12].indexOf(month.value) > -1) {
             day = 31; //1, 3, 5, 7, 8, 10, 12  每月31天
@@ -98,14 +98,16 @@ export default {
         });
       });
       return data;
-    }
+    },
   },
   watch: {
     value(n) {
       if (n) {
-        this.show();
+        setTimeout(()=>{
+          this.show();
+        },100)
       }
-    }
+    },
   },
   mounted() {
     if (this.row === 2) {
@@ -115,6 +117,7 @@ export default {
     }
     console.log(this.selectedIndex);
     this.changeData(this.selectedIndex, undefined);
+    this.refresh();
   },
   methods: {
     show() {
@@ -148,7 +151,7 @@ export default {
     confirm() {
       this.hide();
       const currentSelectedIndex = (this.selectedIndex = this.wheels.map(
-        wheel => {
+        (wheel) => {
           return wheel.getSelectedIndex();
         }
       ));
@@ -165,15 +168,15 @@ export default {
             selectedIndex: this.selectedIndex[i],
             wheelWrapperClass: "wheel-scroller",
             wheelItemClass: "wheel-item",
-            rotate: 25
+            rotate: 25,
           },
           observeDOM: false,
-          click: true
+          click: true,
         });
         let prevSelectedIndex = this.selectedIndex;
         this.wheels[i].on("scrollEnd", () => {
           //滚动完成之后获取当前选取的索引值
-          const currentSelectedIndex = this.wheels.map(wheel =>
+          const currentSelectedIndex = this.wheels.map((wheel) =>
             wheel.getSelectedIndex()
           );
           this.changeData(currentSelectedIndex, prevSelectedIndex);
@@ -237,8 +240,8 @@ export default {
           }
         }
       }
-    }
-  }
+    },
+  },
 };
 function range(n, m, polyfill = false, unit = "") {
   let arr = [];
@@ -246,7 +249,7 @@ function range(n, m, polyfill = false, unit = "") {
     let value = (polyfill && i < 10 ? "0" + i : i) + unit;
     arr.push({
       text: value,
-      value: i
+      value: i,
     });
   }
   return arr;
@@ -257,7 +260,7 @@ function dataFun(arr) {
   for (let i = 0; i < arr.length; i++) {
     let obj = {
       text: arr[i].text,
-      value: arr[i].value
+      value: arr[i].value,
     };
     newArr.push(obj);
   }

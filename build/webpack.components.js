@@ -2,6 +2,7 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const Components = require('../components.json');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const webpackConfig = {
     mode: 'production',
     entry: Components,

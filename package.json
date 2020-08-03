@@ -1,6 +1,6 @@
 {
   "name": "ms-vue-ui",
-  "version": "1.10.9",
+  "version": "1.10.10",
   "description": "This is a lt components library for vue",
   "main": "lib/index.js",
   "style": "lib/style.css",

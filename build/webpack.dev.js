@@ -2,6 +2,7 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
     mode: "development",
     entry: path.resolve(__dirname, '../src/main.js'),
@@ -11,7 +12,7 @@ module.exports = {
     },
     devServer: {
         contentBase: "./dist",
-        host: "localhost",
+        host: "192.168.43.96",
         port: "3031",
         open: true
     },
