@@ -38,21 +38,21 @@ export default {
   props: {
     row: {
       type: Number,
-      default: 3
+      default: 3,
     },
     pickerData: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     show: Boolean,
     selected: {
       type: Array,
-      default: () => [0, 0, 0]
-    }
+      default: () => [0, 0, 0],
+    },
   },
   model: {
     prop: "show",
-    event: "hide"
+    event: "hide",
   },
   watch: {
     pickerData(n) {
@@ -63,21 +63,22 @@ export default {
     },
     show(n) {
       if (n) {
+        console.log("显示");
         this.visibable();
       }
     },
     selected(n) {
       if (n) {
-        this.selectedIndex=n
+        this.selectedIndex = n;
       }
-    }
+    },
   },
   data() {
     return {
       wheels: [],
       insideData: [],
       saveNum: 0,
-      selectedIndex:[0,0,0]
+      selectedIndex: [0, 0, 0],
     };
   },
   methods: {
@@ -97,6 +98,7 @@ export default {
           this.wheels[i].wheelTo(this.selectedIndex[i]);
         }
       }
+      this.saveNum = 1;
     },
     hide() {
       //隐藏 移除wheels 对象
@@ -119,7 +121,7 @@ export default {
       this.hide();
       this.restPendding();
       const currentSelectedIndex = (this.selectedIndex = this.wheels.map(
-        wheel => {
+        (wheel) => {
           return wheel.getSelectedIndex();
         }
       ));
@@ -136,9 +138,9 @@ export default {
             selectedIndex: this.selectedIndex[i],
             wheelWrapperClass: "wheel-scroller",
             wheelItemClass: "wheel-item",
-            rotate: 30
+            rotate: 30,
           },
-          probeType: 3
+          probeType: 3,
         });
         this.wheels[i].isMoveing = true;
         let prevSelectedIndex = this.selectedIndex;
@@ -148,7 +150,7 @@ export default {
         this.wheels[i].on("scrollEnd", () => {
           this.wheels[i].isMoveing = true;
           //滚动完成之后获取当前选取的索引值
-          const currentSelectedIndex = this.wheels.map(wheel =>
+          const currentSelectedIndex = this.wheels.map((wheel) =>
             wheel.getSelectedIndex()
           );
           this.changeData(currentSelectedIndex, prevSelectedIndex);
@@ -199,6 +201,7 @@ export default {
           );
           this.insideData = [];
           this.insideData.push(provinces, cityes, areas);
+          console.log(this.insideData);
         } else {
           if (newSelect[0] !== oldSelect[0]) {
             cityes = this.pickerData[newSelect[0]].cityes;
@@ -220,28 +223,27 @@ export default {
       }
       if (this.show && this.saveNum === 0) {
         this.visibable();
-        this.saveNum++;
+        
       }
     },
     isMoveing() {
-      return this.wheels.some(wheel => {
+      return this.wheels.some((wheel) => {
         return wheel.isMoveing;
       });
     },
     restPendding() {
-      this.wheels.forEach(wheel => {
+      this.wheels.forEach((wheel) => {
         wheel.isMoveing = false;
       });
     },
-    selectProiceFun() {}
-  }
+  },
 };
-const mapFun = function(map, arr) {
+const mapFun = function (map, arr) {
   arr.forEach((item, index) => {
     let text = item.provice ? item.provice : item.text;
     map.push({
       text: text,
-      value: item.value
+      value: item.value,
     });
   });
 };

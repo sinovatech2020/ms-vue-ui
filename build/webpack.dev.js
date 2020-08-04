@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: "development",
+    devtool:'source-map',
     entry: path.resolve(__dirname, '../src/main.js'),
     output: {
         filename: 'bundle.js',
@@ -12,7 +13,7 @@ module.exports = {
     },
     devServer: {
         contentBase: "./dist",
-        host: "192.168.43.96",
+        host: "192.168.1.219",
         port: "3031",
         open: true
     },

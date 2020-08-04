@@ -117,7 +117,6 @@ export default {
     }
     console.log(this.selectedIndex);
     this.changeData(this.selectedIndex, undefined);
-    this.refresh();
   },
   methods: {
     show() {
