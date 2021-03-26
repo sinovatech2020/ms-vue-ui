@@ -7,7 +7,7 @@
       <div class="picker-wrap" v-show="value">
         <div class="picker-nav">
           <span class="picker-cancel" @click="cancel">取消</span>
-          <span class="pciker-title" v-if="title">{{title}}</span>
+          <span class="pciker-title" v-if="title">{{ title }}</span>
           <span class="picker-confirm" @click="confirm">确认</span>
         </div>
         <div class="picker-content">
@@ -28,12 +28,12 @@
   </div>
 </template>
 <script>
-const EVENT_CHANGE = "change";
-import BScroll from "@better-scroll/core";
-import Wheel from "@better-scroll/wheel";
+const EVENT_CHANGE = 'change';
+import BScroll from '@better-scroll/core';
+import Wheel from '@better-scroll/wheel';
 BScroll.use(Wheel);
 export default {
-  name: "MsDatePicker",
+  name: 'MsDatePicker',
   props: {
     min: {
       type: Array,
@@ -66,11 +66,11 @@ export default {
   },
   computed: {
     data1() {
-      let data = range(this.min[0], this.max[0], false, "年"); //输出月
+      let data = range(this.min[0], this.max[0], false, '年'); //输出月
       data.forEach((year) => {
         let minMonth = year.value === this.min[0] ? this.min[1] : 1; //返回  最小月份 如果没有则1
         let maxMonth = year.value === this.max[0] ? this.max[1] : 12; //返回 最大月份 如果没有返回12
-        year.children = range(minMonth, maxMonth, false, "月"); //给年追加一个子数组月份
+        year.children = range(minMonth, maxMonth, false, '月'); //给年追加一个子数组月份
         year.children.forEach((month) => {
           let day = 30; //默认为30天
           if ([1, 3, 5, 7, 8, 10, 12].indexOf(month.value) > -1) {
@@ -78,35 +78,30 @@ export default {
           } else {
             if (month.value === 2) {
               //2月判断闰年 闰年29天
-              day =
-                !(year.value % 400) || (!(year.value % 4) && year.value % 100)
-                  ? 29
-                  : 28;
+              day = !(year.value % 400) || (!(year.value % 4) && year.value % 100) ? 29 : 28;
             }
           }
           //第一年第一个月有没有最小日 入过没有返回1
-          let minDay =
-            year.value === this.min[0] && month.value === this.min[1]
-              ? this.min[2]
-              : 1;
+          let minDay = year.value === this.min[0] && month.value === this.min[1] ? this.min[2] : 1;
           //最后一年的最后一个月多少天 如果没有则换回30天
           let maxDay =
-            year.value === this.max[0] && month.value === this.max[1]
-              ? this.max[2]
-              : day;
-          month.children = range(minDay, maxDay, false, "日");
+            year.value === this.max[0] && month.value === this.max[1] ? this.max[2] : day;
+          month.children = range(minDay, maxDay, false, '日');
         });
       });
       return data;
     },
   },
   watch: {
-    value(n) {
-      if (n) {
-        setTimeout(()=>{
-          this.show();
-        },100)
-      }
+    value: {
+      immediate: true,
+      handler: function (n) {
+        if (n) {
+          setTimeout(() => {
+            this.show();
+          }, 100);
+        }
+      },
     },
   },
   mounted() {
@@ -115,7 +110,6 @@ export default {
     } else if (this.row === 1) {
       this.selectedIndex = this.selectedIndex.slice(0, 1);
     }
-    console.log(this.selectedIndex);
     this.changeData(this.selectedIndex, undefined);
   },
   methods: {
@@ -138,7 +132,7 @@ export default {
     },
     hide() {
       //隐藏 移除wheels 对象
-      this.$emit("input", false);
+      this.$emit('input', false);
       for (let i = 0; i < this.data.length; i++) {
         this.wheels[i].disable();
       }
@@ -149,35 +143,31 @@ export default {
     },
     confirm() {
       this.hide();
-      const currentSelectedIndex = (this.selectedIndex = this.wheels.map(
-        (wheel) => {
-          return wheel.getSelectedIndex();
-        }
-      ));
+      const currentSelectedIndex = (this.selectedIndex = this.wheels.map((wheel) => {
+        return wheel.getSelectedIndex();
+      }));
       const pickerData = this.data;
       const currentSelectedValue = pickerData.map((data, index) => {
         return data[currentSelectedIndex[index]];
       });
-      this.$emit("confirm", currentSelectedValue);
+      this.$emit('confirm', currentSelectedValue);
     },
     createWheel(wrapper, i) {
       if (!this.wheels[i]) {
         this.wheels[i] = new BScroll(wrapper.children[i], {
           wheel: {
             selectedIndex: this.selectedIndex[i],
-            wheelWrapperClass: "wheel-scroller",
-            wheelItemClass: "wheel-item",
+            wheelWrapperClass: 'wheel-scroller',
+            wheelItemClass: 'wheel-item',
             rotate: 25,
           },
           observeDOM: false,
           click: true,
         });
         let prevSelectedIndex = this.selectedIndex;
-        this.wheels[i].on("scrollEnd", () => {
+        this.wheels[i].on('scrollEnd', () => {
           //滚动完成之后获取当前选取的索引值
-          const currentSelectedIndex = this.wheels.map((wheel) =>
-            wheel.getSelectedIndex()
-          );
+          const currentSelectedIndex = this.wheels.map((wheel) => wheel.getSelectedIndex());
           this.changeData(currentSelectedIndex, prevSelectedIndex);
           prevSelectedIndex = currentSelectedIndex;
           this.$emit(EVENT_CHANGE, this.wheels[i].getSelectedIndex());
@@ -199,9 +189,7 @@ export default {
           mouths = dataFun(this.data1[newSelect[0]].children);
         }
         if (this.row >= 3) {
-          days = dataFun(
-            this.data1[newSelect[0]].children[newSelect[0]].children
-          );
+          days = dataFun(this.data1[newSelect[0]].children[newSelect[0]].children);
         }
         this.data = [];
         if (years.length > 0) {
@@ -242,10 +230,10 @@ export default {
     },
   },
 };
-function range(n, m, polyfill = false, unit = "") {
+function range(n, m, polyfill = false, unit = '') {
   let arr = [];
   for (let i = n; i <= m; i++) {
-    let value = (polyfill && i < 10 ? "0" + i : i) + unit;
+    let value = (polyfill && i < 10 ? '0' + i : i) + unit;
     arr.push({
       text: value,
       value: i,
